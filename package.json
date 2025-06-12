@@ -1,5 +1,5 @@
 {
-	"name": "sem_ver",
+	"name": "@sayan_shankhari/sem_ver",
 	"version": "1.0.0",
 	"description": "Semantic Version w.r.t. Git Log",
 	"publishConfig": {
