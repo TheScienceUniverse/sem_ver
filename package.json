@@ -13,7 +13,7 @@
 		"start": "node app &",
 		"stop": "killall node",
 		"dev": "nodemon src/index.js",
-		"test": "npm link && mkdir -f test && cd test && npm link sem_ver && npm start index.js",
+		"test": "npm link && cd test && npm link sem_ver && npm test",
 		"clean": "npm stop && rm -rf node_modules",
 		"restart": "npm stop && npm start",
 		"reboot": "npm run clean && npm install && npm start"
