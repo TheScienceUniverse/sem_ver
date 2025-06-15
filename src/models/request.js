@@ -8,8 +8,8 @@ class Request {
 	}
 }
 
-function create_new_request (task = "", major = "", username = "", account = "", repository = "", branch = "") {
-	return new Request (task, major, username, account, repository, branch);
+function create_new_request (task = "", username = "", account = "", repository = "", branch = "") {
+	return new Request (task, username, account, repository, branch);
 }
 
 module .exports = { create_new_request }

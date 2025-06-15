@@ -1,5 +1,5 @@
 const router = require ("./routes/");
-const request = require ("./models/request");
+const { create_new_request } = require ("./models/request");
 
 
 async function gen_sem_ver (req_obj) {
@@ -9,4 +9,4 @@ async function gen_sem_ver (req_obj) {
 }
 
 
-module .exports = { gen_sem_ver }
+module .exports = { gen_sem_ver, create_new_request }
