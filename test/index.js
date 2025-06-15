@@ -14,4 +14,9 @@ let req_obj = request .create_new_request ();
 Object.assign (req_obj, obj);
 console .log (req_obj);
 
-semver .gen_sem_ver (req_obj);
+async function test (req_obj) {
+	let version = await semver .gen_sem_ver (req_obj);
+	console .log ("Version:", version);
+}
+
+test (req_obj);
