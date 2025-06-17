@@ -1,5 +1,3 @@
-const auth = require ("../../env/token");
-
 function create_github_query (req_obj) {
 	return {
 		"hostname" : "api.github.com"
@@ -9,7 +7,7 @@ function create_github_query (req_obj) {
 			"authority": "api.github.com"
 			, "accept": "application/vnd.github+json"
 			, "accept-language": "en-US,en;q=0.9"
-			, "Authorization": "Bearer " + auth.token
+			, "Authorization": "Bearer " + process .env .GITHUB_ACCESS_TOKEN
 			, "User-Agent" : req_obj .username
 			, "Content-Type" : "application/json"
 			, "sec-fetch-mode": "cors"
@@ -21,5 +19,6 @@ function create_github_query (req_obj) {
 		} //'Mozilla/5.0'
 	};
 }
+
 
 module .exports = { create_github_query }

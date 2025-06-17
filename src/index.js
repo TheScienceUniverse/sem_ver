@@ -1,5 +1,6 @@
 const router = require ("./routes/");
 const { create_new_request } = require ("./models/request");
+require ("dotenv") .config ({ path: "../.env" });
 
 
 async function gen_sem_ver (req_obj) {

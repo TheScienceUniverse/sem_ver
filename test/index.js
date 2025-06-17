@@ -1,4 +1,4 @@
-const semver = require ("sem_ver");
+const semver = require ("@sayan_shankhari/sem_ver");
 
 
 let req_obj = semver .create_new_request (
