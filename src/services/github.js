@@ -3,12 +3,15 @@ const gh_query = require ("../models/gh_query");
 const github = require ("../api/github");
 
 
-async function get_git_data (req_obj = request.Request) {
+async function get_git_data (req_obj) {
 	let query = gh_query .create_github_query (req_obj);
 	let received = false;
 
 	var page_no = 1;
 	var path = query .path;
+
+	// 100 records per page; increase page count if required
+	const MAX_PAGE_COUNT = 10;
 
 	raw_data = "";
 	commit_list = [];
@@ -31,7 +34,10 @@ async function get_git_data (req_obj = request.Request) {
 			.finally (() => {
 				console .log ("Fetched Page: ", page_no - 1);
 			});
-	} while (received);
+	} while (
+		received
+		&& MAX_PAGE_COUNT > page_no
+	);
 
 	raw_data = "[" + raw_data + "]";
 }

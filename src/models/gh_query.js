@@ -7,7 +7,7 @@ function create_github_query (req_obj) {
 			"authority": "api.github.com"
 			, "accept": "application/vnd.github+json"
 			, "accept-language": "en-US,en;q=0.9"
-			, "Authorization": "Bearer " + process .env .GITHUB_ACCESS_TOKEN
+			, "Authorization": (undefined == process .env .GITHUB_ACCESS_TOKEN) ? "" : ("Bearer " + process .env .GITHUB_ACCESS_TOKEN)
 			, "User-Agent" : req_obj .username
 			, "Content-Type" : "application/json"
 			, "sec-fetch-mode": "cors"
