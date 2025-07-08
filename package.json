@@ -1,6 +1,6 @@
 {
 	"name": "@sayan_shankhari/sem_ver",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"description": "Semantic Version w.r.t. Git Log",
 	"publishConfig": {
 		"access": "public"

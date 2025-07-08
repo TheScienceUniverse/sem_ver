@@ -3,14 +3,9 @@ Semantic Versioning
 
 ___
 
-Sample Query:
-```
-http://127.0.0.1:3000/?user={Your GitHub Username}&path={User or Organization Name}&repo={Repository Name}&branch={Branch Name}
-```
-
-[![Version](localhost:3000/?type=version&user=sayan&path=thescienceuniverse&repo=semver&branch=master)](https://github.com/TheScienceUniverse/semver)
-[![Node.js CI](https://github.com/TheScienceUniverse/semver/actions/workflows/node.js.yml/badge.svg)](https://github.com/TheScienceUniverse/semver/actions/workflows/node.js.yml)
-[![GitHub Issues](https://img.shields.io/github/issues/TheScienceUniverse/semver.svg?style=flat-square&label=Issues&color=d77982)](https://github.com/TheScienceUniverse/semver/issues)
+[![Version](https://markdown-badge-crafter.netlify.app/.netlify/functions/app/?type=version&user=SayanShankhari&acc=TheScienceUniverse&repo=sem_ver&branch=master)](https://github.com/TheScienceUniverse/sem_ver)
+[![Node.js CI](https://github.com/TheScienceUniverse/sem_ver/actions/workflows/node.js.yml/badge.svg)](https://github.com/TheScienceUniverse/sem_ver/actions/workflows/node.js.yml)
+[![GitHub Issues](https://img.shields.io/github/issues/TheScienceUniverse/sem_ver.svg?style=flat-square&label=Issues&color=d77982)](https://github.com/TheScienceUniverse/sem_ver/issues)
 [![Discord](https://img.shields.io/discord/869557815780470834?color=738adb&label=Discord&logo=discord&logoColor=white&style=flat-square)](https://discord.gg/DEYW7vZkm7)
 
 
@@ -26,68 +21,61 @@ http://127.0.0.1:3000/?user={Your GitHub Username}&path={User or Organization Na
 Using npm:
 
 ```bash
-$ npm install semver
+$ npm install @sayan_shankhari/sem_ver
 ```
 
 Using bower:
 
 ```bash
-$ bower install semver
+$ bower install @sayan_shankhari/sem_ver
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add semver
+$ yarn add @sayan_shankhari/sem_ver
 ```
 
 Using pnpm:
 
 ```bash
-$ pnpm add semver
+$ pnpm add @sayan_shankhari/sem_ver
 ```
 
 Once the package is installed, you can import the library using `import` or `require` approach:
 
 ```js
-import semver from 'semver/app/';
-```
-
-You can also use the default export, since the named export is just a re-export from the semver factory:
-
-```js
-import semver from 'semver/app/';
-
-console.log (semver .create ('Proper URI'));
+import semver from "@sayan_shankhari/sem_ver/";
 ```
 
 If you use `require` for importing, **only default export is available**:
 
 ```js
-const semver = require ('semver/app/');
+const semver = require ("@sayan_shankhari/sem_ver/");
 ```
 
 ## Example
 
 ```js
-import semver from 'semver';
-//const semver = require('semver'); // legacy way
+const semver = require ("@sayan_shankhari/sem_ver");
 
-// Make a request for a user with a given inputs from brouser URI
-http .createServer (async (req, res) => {
-	const url_obj = new URL (req .url, `http://${req .headers .host}`);
-	let response = await router .get (url_obj);
 
-	res .writeHead (response .status, {
-		'Content-Type': response .type,
-		'Content-Length': response .data .toString() .length,
-		'Expires': new Date() .toUTCString()
-	});
+let req_obj = semver .create_new_request (
+	task = "generate"
+	/*, username = "YOUR_GITHUB_USERNAME"*/
+	, account = "TheScienceUniverse"
+	, repository = "sem_ver"
+	, branch = "master"
+);
 
-	res .end (response .data);
-}) .listen (config .port, config .host, () => {
-	console .log (`Server running at http://${config .host}:${config .port}/`);
-});
+console .log (req_obj);
+
+async function test (req_obj) {
+	let version = await semver .gen_sem_ver (req_obj);
+	console .log ("Version:", version);
+}
+
+test (req_obj);
 ```
 
 > **Note**: `async/await` is part of ECMAScript 2017 and is not supported in Internet
@@ -96,12 +84,16 @@ http .createServer (async (req, res) => {
 
 ## Showcase
 
-![Image](./media/version.png "Build and Run demo")
+```bash
+$ npm test
+```
+
+![Image](./public/demo.png "Test demo")
 ___
 
 ## History
 
-- Hi, this is the inititiator of this repo. After searching in npm registri could not find dynamic version badge for markdown, so creating this, feen free to test, use and contribute.
+- Hi, this is the inititiator of this repo. After searching in npm registri could not find dynamic version badge for markdown, so creating this, feel free to test, use and contribute.
 
 - Please try this tool on systems (computer, mobile, embded systems having nodejs running).
  
